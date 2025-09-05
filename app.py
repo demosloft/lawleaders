@@ -452,7 +452,7 @@ def webhook_listener():
     try:
         # Log the incoming request details
         client_ip = request.remote_addr
-        timestamp = datetime.utcnow().isoformat()
+        timestamp = datetime.now(timezone.utc).isoformat()  # <-- timezone-aware
         logger.info(f"=== INCOMING WEBHOOK REQUEST ===")
         logger.info(f"Timestamp: {timestamp}")
         logger.info(f"Client IP: {client_ip}")
@@ -635,6 +635,7 @@ if __name__ == '__main__':
     logger.info(f"Zapier webhook URL: {ZAPIER_WEBHOOK_URL}")
 
     app.run(host=host, port=port, debug=debug)
+
 
 
 
