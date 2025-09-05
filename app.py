@@ -620,7 +620,7 @@ def ping():
 def health():
     return {
         "status": "healthy",
-        "timestamp": datetime.utcnow().isoformat(),
+        "timestamp": datetime.now(timezone.utc).isoformat(),
         "zapier_url": ZAPIER_WEBHOOK_URL
     }, 200
 
@@ -635,3 +635,4 @@ if __name__ == '__main__':
     logger.info(f"Zapier webhook URL: {ZAPIER_WEBHOOK_URL}")
 
     app.run(host=host, port=port, debug=debug)
+
