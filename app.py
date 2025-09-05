@@ -627,7 +627,7 @@ def health():
 # Run the app
 if __name__ == '__main__':
     # Get port from environment variable (required for Replit deployment)
-    port = int(os.environ.get('PORT', 5000))
+    port = int(os.environ.get('PORT', 8080))
     host = os.environ.get('HOST', '0.0.0.0')
     debug = os.environ.get('DEBUG', 'False').lower() == 'true'
 
@@ -635,6 +635,7 @@ if __name__ == '__main__':
     logger.info(f"Zapier webhook URL: {ZAPIER_WEBHOOK_URL}")
 
     app.run(host=host, port=port, debug=debug)
+
 
 
 
